@@ -1,0 +1,60 @@
+body{
+    font-family: "Poppins", sans-serif;
+}
+.weather-card{
+    background-color: #ad1284;
+    color: antiquewhite;
+    overflow: hidden;
+    display: flex;
+    border-radius: 20px;
+
+    .panel-start{
+        background-image: url("../img/bg.jpg");
+        background-size: cover;
+        background-position: center center;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 20px;
+
+        &::before{
+            content:"";
+            background-color: #ad1284;
+            opacity: 0.3;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+           
+        }
+        h2,h4,h5{
+            margin: 0;
+            text-shadow: 0 0 2px rgb(50,50,50);
+        }
+        .date, .temp{
+            position: relative;
+            z-index: 1;
+        }
+        .date{
+            h2{
+                font-size: 2rem;
+            }
+            h4{
+                font-size: 0.7rem;
+                font-weight: 400;
+            }
+        }
+        .date{
+            h2{
+                font-size: 2rem;
+                font-weight: 600;
+                margin: -10px 0;
+            }
+            h5{
+                font-size: 0.7rem;
+                font-weight: 400;
+            }
+        }
+
+    }
+}
