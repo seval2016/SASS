@@ -15,7 +15,7 @@
     background-position: center center;
     padding: 20px;
     position: relative;
-    @include m.flex($fd: column);
+    @include m.flex($fd: column,$gap:30px);
     flex: 2 0 150px;
     @include m.border-radius(20px);
 
