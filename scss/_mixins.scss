@@ -1,3 +1,6 @@
+@use "./variables" as v;
+
+
 @mixin reset-list($m: 0, $p: 0) {
   list-style-type: none;
   margin: $m;
@@ -5,7 +8,9 @@
 }
 
 @mixin border-radius($val) {
-  border-radius: $val;
+    @each $vendor in v.$vendors {
+		#{$vendor}border-radius: $val;
+	}
 }
 
 @mixin watermark($color, $opacity) {
@@ -30,3 +35,13 @@
 @mixin shadow($type, $val) {
   #{$type}-shadow:$val;
 }
+
+/*
+@mixin shadow($type, $val) {
+	@if $type = box {
+		box-shadow: $val;
+	} @else {
+		text-shadow: $val;
+	}
+}
+*/
