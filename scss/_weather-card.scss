@@ -1,5 +1,6 @@
 @use "./variables" as v;
 @use "./mixins" as m;
+@use "./common";
 
 .weather-card {
   background-color: v.$color1;
@@ -96,19 +97,8 @@
       }
     }
     .btn-change {
-      border-style: dotted;
-      border-color: v.$color4;
-      background-image: linear-gradient(90deg, v.$color2, v.$color6);
-      padding: 7px;
-      @include m.border-radius(20px);
-      color: v.$color1;
-      font-size: 1rem;
-      cursor: pointer;
-
-      &:hover {
-        background-image: linear-gradient(90deg, v.$color6, v.$color2);
-        color: v.$color5;
-      }
+     @extend .btn-base;
+     font-size: 0.8rem;;
     }
   }
 }
