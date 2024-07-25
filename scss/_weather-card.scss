@@ -1,0 +1,114 @@
+@use "./variables" as v;
+@use "./mixins" as m;
+
+.weather-card {
+  background-color: v.$color1;
+  color: v.$color4;
+  overflow: hidden;
+  @include m.flex();
+  @include m.border-radius(20px);
+
+  .panel-start {
+    background-image: v.$bg-image;
+    background-size: cover;
+    background-position: center center;
+    padding: 20px;
+    position: relative;
+    @include m.flex($fd: column);
+    flex: 2 0 150px;
+    @include m.border-radius(20px);
+
+    &::before {
+      content: "";
+      @include m.watermark(v.$color1, 0.3);
+      z-index: 0;
+    }
+    h2,
+    h4,
+    h5 {
+      margin: 0;
+      @include m.shadow(text,0 0 2px v.$color5);
+    }
+    .date,
+    .temp {
+      position: relative;
+      z-index: 1;
+    }
+    .date {
+      h2 {
+        font-size: 2rem;
+      }
+      h4 {
+        font-size: 0.7rem;
+        font-weight: 400;
+      }
+    }
+    .date {
+      h2 {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+      h5 {
+        font-size: 0.7rem;
+        font-weight: 400;
+      }
+    }
+  }
+  .panel-end {
+    flex: 8 0 260px;
+    padding: 15px;
+    @include m.flex($fd: column, $gap: 30px);
+    .status,
+    .days {
+      @include m.reset-list();
+    }
+
+    .status {
+      line-height: 25px;
+      li {
+        @include m.flex();
+      }
+    }
+
+    .days {
+      @include m.flex();
+
+      li {
+        @include m.flex($fd: column, $ai: center);
+        padding: 10px;
+
+        span {
+          &:first-child {
+            font-size: 2rem;
+          }
+          &:nth-child(2) {
+            font-size: 0.7rem;
+          }
+        }
+
+        &.active {
+          background-color: antiquewhite;
+          color: rgb(50, 50, 50);
+          @include m.border-radius(15px);
+          @include m.shadow(box,0 0 1px v.$color5);
+
+        }
+      }
+    }
+    .btn-change {
+      border-style: dotted;
+      border-color: v.$color4;
+      background-image: linear-gradient(90deg, v.$color2, v.$color6);
+      padding: 7px;
+      @include m.border-radius(20px);
+      color: v.$color1;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-image: linear-gradient(90deg, v.$color6, v.$color2);
+        color: v.$color5;
+      }
+    }
+  }
+}

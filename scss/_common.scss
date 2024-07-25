@@ -1,0 +1,9 @@
+@use "./variables" as v;
+
+body {
+  font-family: v.$primary-font, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
